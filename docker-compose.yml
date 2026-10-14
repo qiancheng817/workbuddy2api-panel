@@ -1,6 +1,8 @@
 services:
   wb2api:
-    build: .
+    # 预构建镜像由 GitHub Actions 在线构建并推送到 GHCR（见 .github/workflows/docker-ghcr.yml）
+    # 更新镜像：docker compose pull && docker compose up -d
+    image: ghcr.io/qiancheng817/workbuddy2api-panel:latest
     container_name: workbuddy2api
     restart: unless-stopped
     # 容器默认以 app 用户（uid 10001）运行。宿主机挂载目录属主不同会导致
